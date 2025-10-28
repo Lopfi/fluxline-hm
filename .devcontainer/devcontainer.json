@@ -1,0 +1,7 @@
+{
+	"image": "mcr.microsoft.com/devcontainers/rust:latest", 	
+	"features": {
+	    "ghcr.io/michidk/devcontainers-features/typst:1": {}
+	},
+	"postCreateCommand": "bash .devcontainer/post-create.sh"
+}
