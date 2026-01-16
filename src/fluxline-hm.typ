@@ -11,6 +11,7 @@
   examiner: none,
   supervisors: none,
   submission-date: none,
+  start-date: none,
   abstract: none,
   acknowledgements: none,
   bib: none,
@@ -109,6 +110,7 @@
     author: author,
     supervisors: supervisors,
     examiner: examiner,
+    start-date: start-date,
     submission-date: submission-date,
   )
 

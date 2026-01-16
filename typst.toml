@@ -1,6 +1,6 @@
 [package]
 name = "fluxline-hm"
-version = "0.0.1"
+version = "1.0.0"
 entrypoint = "lib.typ"
 authors = ["robin <@Lopfi>"]
 license = "MIT"
