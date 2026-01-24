@@ -18,7 +18,7 @@
   faculty: "Faculty of Applied Natural Sciences and Mechatronics",
   birth-date: datetime(year: 2000, day: 1, month: 1),
   abstract: none,
-  bib: bibliography("references.bib", title: "Bibliography"),
+  bib: bibliography("bibliography.yml", title: "Bibliography", style: "ieee"),
   glossar-list: glossar-list,
   abbreviations-list: abbreviations-list,
   acknowledgements: acknowledgements,
