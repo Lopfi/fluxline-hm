@@ -65,3 +65,13 @@ The `variables-list` is helpful if you want to pre-define frequently-used phrase
 
 IMPORTANT:\
 Your keys must be unique across all files (`abbreviations.typ` and `variables.typ`)
+
+
+## Development
+
+ For development of this template I am using [typship](https://github.com/sjfhsjfh/typship).
+
+ By running `typship dev` in the root folder of this repo it gets added to the local `@preview` packages and can be used like this:
+```typst
+#import "@preview/fluxline-hm:1.0.0": thesis
+```
