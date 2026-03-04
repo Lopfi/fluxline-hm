@@ -32,7 +32,7 @@
   //#set page(margin: (inside: 3.5cm, outside: 2cm, y: 3.75cm)) // TODO
   set par(justify: true)
   show table : set table.cell(align: left)
-  set text(font: "Arial", lang: "en", size: 12pt, hyphenate: false) // replaced this font: New Computer Modern
+  set text(font: "Liberation Sans", lang: "en", size: 12pt, hyphenate: false) // replaced this font: New Computer Modern
   show math.equation: set text(weight: 400)
 
   show heading: it => titlecase(it)
