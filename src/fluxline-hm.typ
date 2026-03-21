@@ -19,12 +19,13 @@
   abbreviations-list: none,
   revisions: none,
   signature: none,
+  appendix: none,
   body,
 ) = {
 
   show: make-glossary
-  register-glossary(glossar-list)
   register-glossary(abbreviations-list)
+  register-glossary(glossar-list)
 
   // Set the document's basic properties.
   set document(author: author, title: title)
@@ -71,6 +72,16 @@
 
   show heading.where(level: 9): set heading(supplement: [])
 
+  set table(
+    fill: (x, y) =>
+      if y == 0 {
+        gray.lighten(40%)
+      },
+    align: right,
+  )
+
+  show table.cell.where(y: 0): strong
+
   show figure.where(kind: "code"): it => {
     if "label" in it.fields() {
       state("codly-label").update((_) => it.label)
@@ -84,10 +95,9 @@
   show: codly-init.with()
   show figure: set block(breakable: true)
   codly(
-    zebra-fill: white,
-    breakable: true,
+    breakable: false,
     reference-sep: ", Row ",
-    default-color: rgb("#7d7d7d")
+    languages: codly-languages
   )
 
   show outline.entry.where(
@@ -161,11 +171,14 @@
   pagebreak()
 
   [= Abbreviations]
-  print-glossary(abbreviations-list)
+  let print-page-number(entry) = {
+    return ""
+  }
+  print-glossary(abbreviations-list, user-print-back-references: print-page-number)
   pagebreak()
 
   [= Glossary]
-  print-glossary(glossar-list)
+  print-glossary(glossar-list, user-print-back-references: print-page-number)
   pagebreak()
 
   set page(footer: context {
@@ -185,10 +198,13 @@
 
   pagebreak()
 
-  set page(
-    numbering: "I",
-  )
-  counter(page).update(1)
+  counter(heading).update(0)
+  set heading(numbering: "A")
+
+  if appendix != none {
+    [= Appendix]
+    appendix()
+  }
 
   if bib != none {
     pagebreak()
