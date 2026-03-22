@@ -118,6 +118,7 @@
     title: title,
     subtitle: subtitle,
     author: author,
+    faculty: faculty,
     supervisors: supervisors,
     examiner: examiner,
     start-date: start-date,
