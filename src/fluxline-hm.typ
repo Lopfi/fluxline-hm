@@ -171,8 +171,8 @@
   outline(title: none, target: figure.where(kind: "code"))
   pagebreak()
 
-  [= Abbreviations]
-  let print-page-number(entry) = {
+  [= List of Abbreviations]
+  let print-page-number(entry, deduplicate: false) = {
     return ""
   }
   print-glossary(abbreviations-list, user-print-back-references: print-page-number)
@@ -182,12 +182,14 @@
   print-glossary(glossar-list, user-print-back-references: print-page-number)
   pagebreak()
 
-  set page(footer: context {
+  set page(
+    numbering: "1",
+    number-align: center,
+    footer: context {
       line(length: 100%, stroke: 0.045em)
-      align(center, counter(page).display("1"))
-  })
-
-  set page(numbering: "1", number-align: center)
+      align(center, counter(page).display(page.numbering))
+    },
+  )
   counter(page).update(1)
   set heading(
     numbering: "1.1."
@@ -195,15 +197,22 @@
 
   body
 
-  set page(header: none)
-
   pagebreak()
+
+  set page(
+    numbering: "I",
+    number-align: center,
+    footer: context {
+      line(length: 100%, stroke: 0.045em)
+      align(center, counter(page).display(page.numbering))
+    },
+  )
+  counter(page).update(1)
 
   counter(heading).update(0)
   set heading(numbering: "A")
 
   if appendix != none {
-    [= Appendix]
     appendix()
   }
 
