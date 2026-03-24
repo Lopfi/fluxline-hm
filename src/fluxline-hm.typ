@@ -34,7 +34,7 @@
   set par(justify: true)
   show table : set table.cell(align: left)
   set text(font: "Liberation Sans", lang: "en", size: 12pt, hyphenate: false) // replaced this font: New Computer Modern
-  show math.equation: set text(weight: 400)
+  show math.equation: set text(font: "Liberation Sans", weight: 400)
 
   show heading: it => titlecase(it)
   show heading.where(
