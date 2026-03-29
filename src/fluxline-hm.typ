@@ -30,7 +30,6 @@
   // Set the document's basic properties.
   set document(author: author, title: title)
   set page("a4")
-  //#set page(margin: (inside: 3.5cm, outside: 2cm, y: 3.75cm)) // TODO
   set par(justify: true)
   show table : set table.cell(align: left)
   set text(font: "Liberation Sans", lang: "en", size: 12pt, hyphenate: false) // replaced this font: New Computer Modern
